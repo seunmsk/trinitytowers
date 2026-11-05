@@ -146,6 +146,13 @@ if (poster) poster.addEventListener("click", (e) => {
   $("player").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${ytId(C.video)}?autoplay=1&rel=0" title="Trinity Towers video tour" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
 });
 
+/* ---------- map (Contact page): pinned to the building's entrance ---------- */
+const map = $("map");
+if (map) {
+  map.innerHTML = '<iframe src="https://maps.google.com/maps?q=6.430467,3.443546&z=17&output=embed" title="Map: Trinity Towers, Oniru, Victoria Island" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+  map.hidden = false;
+}
+
 /* ---------- tour booking (Contact page) ---------- */
 const form = $("tourform");
 if (form) {
