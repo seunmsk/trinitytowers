@@ -1,0 +1,10 @@
+# Old WordPress addresses -> new pages, so Google results and shared links keep working
+/home                    /              301
+/contact-2               /contact/      301
+/contact-2/              /contact/      301
+/book-a-tour             /contact/      301
+/book-a-tour/            /contact/      301
+/wp-admin/*              /admin/        302
+/wp-login.php            /admin/        302
+/wp-content/uploads/*    /gallery/      301
+/feed/                   /              301

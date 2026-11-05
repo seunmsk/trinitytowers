@@ -1,0 +1,6 @@
+# Copy to .dev.vars for local testing with `npm run dev`. Never commit .dev.vars.
+ADMIN_PASSWORD=choose-a-long-password
+# Optional: email the leasing team when a tour request arrives (https://resend.com)
+# RESEND_API_KEY=re_xxx
+# NOTIFY_EMAIL=trinitytowers@estatelinks.net
+# NOTIFY_FROM=Trinity Towers website <website@trinitytowers.ng>

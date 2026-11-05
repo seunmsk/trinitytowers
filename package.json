@@ -1,0 +1,13 @@
+{
+  "name": "trinitytowers-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev public --kv CONTENT",
+    "deploy": "wrangler pages deploy public",
+    "test": "node test/functions.test.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

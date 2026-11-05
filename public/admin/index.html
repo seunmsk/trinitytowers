@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Site manager · Trinity Towers</title>
+<meta name="description" content="Trinity Towers site manager">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Site manager · Trinity Towers">
+<meta property="og:description" content="Trinity Towers site manager">
+<meta property="og:url" content="https://trinitytowers.ng/admin/">
+<meta property="og:image" content="https://trinitytowers.ng/img/front-aerial.jpg">
+<meta name="theme-color" content="#0d0f11">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body data-page="admin">
+<div class="login" id="login" hidden>
+  <form id="loginform">
+    <span class="mark">TRINITY TOWERS<span>Site manager</span></span>
+    <div class="f"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required></div>
+    <button class="btn dark" type="submit">Sign in</button>
+    <p class="msg" id="pw-msg" role="alert"></p>
+  </form>
+</div>
+
+<div class="admin" id="admin" hidden aria-label="Site manager">
+  <div class="admin-bar">
+    <span class="mark">TRINITY TOWERS<span>Site manager</span></span>
+    <span class="who" id="adm-who"></span>
+    <div class="sp">
+      <span class="save-state" id="adm-state">No unsaved changes</span>
+      <button class="btn solid" id="adm-save" type="button">Publish changes</button>
+      <a class="btn" href="/" id="adm-close" target="_blank" rel="noopener">View site</a>
+      <button class="btn" type="button" id="adm-logout">Log out</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <div class="admin-nav" role="tablist" aria-label="Sections">
+      <button role="tab" id="tab-spaces" data-tab="spaces" aria-selected="true">Spaces</button>
+      <button role="tab" id="tab-home" data-tab="home" aria-selected="false">Homepage</button>
+      <button role="tab" id="tab-contact" data-tab="contact" aria-selected="false">Contact &amp; video</button>
+      <button role="tab" id="tab-tours" data-tab="tours" aria-selected="false">Tour requests <span class="count" id="tour-count" hidden>0</span></button>
+    </div>
+    <div class="admin-main">
+      <div class="notice" id="adm-notice" hidden></div>
+
+      <div class="pane" data-pane="spaces">
+        <div><h2>Spaces</h2><p class="lede">Update what each space is, its size and whether it's still available. The stacking plan on the site changes as soon as you publish.</p></div>
+        <div class="summary" id="adm-summary"></div>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Floor</th><th>Tower</th><th>Use</th><th>Size (sqm)</th><th>Status</th></tr></thead><tbody id="adm-spaces"></tbody></table></div>
+      </div>
+
+      <div class="pane" data-pane="home" hidden>
+        <div><h2>Homepage</h2><p class="lede">The opening section and the four headline figures.</p></div>
+        <div class="fgrid">
+          <div class="f full"><label for="a-heroEyebrow">Small line above the headline</label><input id="a-heroEyebrow" data-k="heroEyebrow"></div>
+          <div class="f full"><label for="a-heroTitle">Headline (put *stars* around words to show them in gold)</label><input id="a-heroTitle" data-k="heroTitle"></div>
+          <div class="f full"><label for="a-heroSub">Intro paragraph</label><textarea id="a-heroSub" data-k="heroSub"></textarea></div>
+          <div class="f full"><label for="a-hours">Viewing hours</label><input id="a-hours" data-k="hours"></div>
+          <div class="f"><label for="a-stat0n">Figure 1</label><input id="a-stat0n" type="number" data-k="stat0n"></div>
+          <div class="f"><label for="a-stat0l">Figure 1 label</label><input id="a-stat0l" data-k="stat0l"></div>
+          <div class="f"><label for="a-stat1n">Figure 2</label><input id="a-stat1n" type="number" data-k="stat1n"></div>
+          <div class="f"><label for="a-stat1l">Figure 2 label</label><input id="a-stat1l" data-k="stat1l"></div>
+          <div class="f"><label for="a-stat2n">Figure 3</label><input id="a-stat2n" type="number" data-k="stat2n"></div>
+          <div class="f"><label for="a-stat2l">Figure 3 label</label><input id="a-stat2l" data-k="stat2l"></div>
+          <div class="f"><label for="a-stat3n">Figure 4</label><input id="a-stat3n" type="number" data-k="stat3n"></div>
+          <div class="f"><label for="a-stat3l">Figure 4 label</label><input id="a-stat3l" data-k="stat3l"></div>
+        </div>
+      </div>
+
+      <div class="pane" data-pane="contact" hidden>
+        <div><h2>Contact &amp; video</h2><p class="lede">Shown in the tour section, the footer and the WhatsApp button.</p></div>
+        <div class="fgrid">
+          <div class="f"><label for="a-phone1">Phone 1</label><input id="a-phone1" data-k="phone1"></div>
+          <div class="f"><label for="a-phone2">Phone 2</label><input id="a-phone2" data-k="phone2"></div>
+          <div class="f"><label for="a-email">Email</label><input id="a-email" data-k="email"></div>
+          <div class="f"><label for="a-whatsapp">WhatsApp number (with 234, no +)</label><input id="a-whatsapp" data-k="whatsapp"></div>
+          <div class="f full"><label for="a-video">YouTube video link</label><input id="a-video" data-k="video"></div>
+        </div>
+      </div>
+
+      <div class="pane" data-pane="tours" hidden>
+        <div><h2>Tour requests</h2><p class="lede">Requests sent from the Book a tour form, newest first.</p></div>
+        <div id="adm-tours"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/site.js"></script>
+<script src="/assets/admin.js"></script>
+</body>
+</html>
