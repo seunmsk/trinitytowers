@@ -1,0 +1,12 @@
+# Cloudflare Pages settings, read on every deploy.
+# This makes Cloudflare serve the website from the public/ folder, whatever the dashboard says.
+name = "trinitytowers"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "public"
+
+# Content store for the site manager and tour requests.
+# Create a KV namespace in the dashboard (Storage & databases → Workers KV), copy its ID,
+# then remove the # from the three lines below and paste the ID in.
+# [[kv_namespaces]]
+# binding = "CONTENT"
+# id = "PASTE-THE-KV-NAMESPACE-ID-HERE"

@@ -9,12 +9,12 @@ The Trinity Towers website (trinitytowers.ng) runs on Cloudflare Pages, with a s
 
 ## Go live
 
-1. **Create the Pages project.** In the Cloudflare dashboard, open **Workers & Pages → Create → Pages → Connect to Git** and choose this repository. Use framework preset **None**, leave the build command empty, and set the build output directory to `public`. Every push to `main` redeploys the site.
-2. **Create the content store (KV).** Open **Storage & databases → Workers KV → Create instance** (on some accounts it says **Create namespace**). Name it `trinitytowers-content`.
-3. **Connect the store to the site.** Open the **trinitytowers** project, go to **Settings → Bindings → Add → KV namespace**, set the variable name to `CONTENT` and pick `trinitytowers-content`, then **Save**. If there's a **Production / Preview** switch, add it under **Production**.
-4. **Set the admin password.** Under **Settings → Variables and Secrets**, add `ADMIN_PASSWORD` with the type **Secret**. Use a long password.
-5. **Redeploy.** Under **Deployments**, open the latest one and choose **Retry deployment**. Bindings only take effect on a new deployment.
-6. **Check it.** Open `https://<project>.pages.dev/api/status`. It should say `"mode": "live"`. Then sign in at `/admin/`.
+1. **Create the Pages project.** In the Cloudflare dashboard, open **Workers & Pages → Create → Pages → Connect to Git** and choose this repository. Leave the build settings as they are: `wrangler.toml` tells Cloudflare to serve the `public` folder. Every push to `main` redeploys the site.
+2. **Create the content store (KV).** Open **Storage & databases → Workers KV → Create instance** (on some accounts it says **Create namespace**). Name it `trinitytowers-content`, then copy its **ID**.
+3. **Connect the store to the site.** In `wrangler.toml`, remove the `#` from the three `[[kv_namespaces]]` lines and paste the ID in, then commit. Cloudflare reads the store from this file, so the dashboard's **Bindings** page shows it as managed by `wrangler.toml`.
+4. **Set the admin password.** In the project, under **Settings → Variables and Secrets**, add `ADMIN_PASSWORD` with the type **Secret**. Use a long password.
+5. **Redeploy.** Under **Deployments**, open the latest one and choose **Retry deployment**.
+6. **Check it.** Open the address shown at the top of the project page (usually `https://trinitytowers.pages.dev`; Cloudflare adds a short suffix if the name was taken) and add `/api/status`. It should say `"mode": "live"`. Then sign in at `/admin/`.
 7. **Optional: email alerts for tour requests.** Add the secrets `RESEND_API_KEY` (from resend.com) and `NOTIFY_EMAIL` (for example `trinitytowers@estatelinks.net`), then redeploy.
 8. **Move the domain.** See below.
 
